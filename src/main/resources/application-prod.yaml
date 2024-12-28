@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: users
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/autoTradingSystem}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:test}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        default_schema: ${DB_SCHEMA:users}
+    show-sql: false
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+#    default-schema: ${DB_SCHEMA:users}
+
+tracing:
+  url: ${TRACING_COLLECTOR_URL:http://localhost:55680/v1/traces}
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+
+logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+  config: classpath:logback-spring-prod.xml
+
+axon:
+  axonserver:
+    client-id: user-service
+
+server:
+  port: 8089

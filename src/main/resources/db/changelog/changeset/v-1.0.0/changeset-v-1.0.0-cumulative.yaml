@@ -1,0 +1,10 @@
+databaseChangeLog:
+#  - changeSet:
+#      id: 1
+#      author: xzz1p
+#      changes:
+#        - sqlFile:
+#            path: db/changelog/changeset/v-1.0.0/01-create-seq-axon.sql
+#            encoding: utf8
+#            splitStatements: true
+#            stripComments: true
