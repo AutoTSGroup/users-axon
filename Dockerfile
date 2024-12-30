@@ -1,8 +1,11 @@
 # Указываем базовый образ с Maven и OpenJDK 17
-FROM maven:3.9.4-eclipse-temurin-17 AS build
+FROM maven:3.9-openjdk-17 AS build
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
+
+# Копируем settings.xml
+COPY settings.xml /root/.m2/settings.xml
 
 # Копируем файлы проекта
 COPY . .
