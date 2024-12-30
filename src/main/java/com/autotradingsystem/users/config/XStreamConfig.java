@@ -20,8 +20,6 @@ import com.autotradingsystem.messages.events.user.AttachedBrokerToUserEvent;
 import com.autotradingsystem.messages.events.user.DisAttachedBrokerToUserEvent;
 import com.autotradingsystem.messages.events.user.UserCreatedEvent;
 import com.autotradingsystem.messages.queries.borker.*;
-import com.autotradingsystem.users.saga.CreateBrokerSaga;
-import com.autotradingsystem.users.saga.DisAttachBrokerToUserSaga;
 import com.thoughtworks.xstream.XStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
