@@ -184,15 +184,26 @@ jobs:
           </settings>
           EOF
 
+      - name: Extract version
+        run: echo "VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
+
+      - name: Debug VERSION
+        run: echo "VERSION=${{ env.VERSION }}"
+
       - name: Copy Maven settings for Docker build
         run: cp ~/.m2/settings.xml .
 
       - name: Build Docker Image
         run: |
+          if [ -z "${{ env.VERSION }}" ]; then
+            echo "VERSION is empty, setting default value."
+            VERSION=latest
+          fi
           docker build -t ghcr.io/autotsgroup/users-axon/app:${{ env.VERSION }} .
 
       - name: Push Docker Image
         run: |
           docker push ghcr.io/autotsgroup/users-axon/app:${{ env.VERSION }}
+  
   
   
