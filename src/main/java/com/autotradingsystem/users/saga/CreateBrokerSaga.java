@@ -31,6 +31,7 @@ public class CreateBrokerSaga {
 
             commandGateway.sendAndWait(command);
         }catch (Exception e){
+            System.out.println("Ошибка в саге: " + e.getMessage());
             DisAttachBrokerToUserCommand command = DisAttachBrokerToUserCommand.builder()
                     .userId(event.getUserId())
                     .brokerId(event.getBrokerId())

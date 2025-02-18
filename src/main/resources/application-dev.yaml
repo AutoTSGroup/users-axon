@@ -21,9 +21,11 @@ spring:
 #    change-log: classpath:db/changelog/db.changelog-master.yaml
 #    default-schema: users
 #
+
 axon:
   axonserver:
     client-id: user-service
+
 
 server:
   port: 8086

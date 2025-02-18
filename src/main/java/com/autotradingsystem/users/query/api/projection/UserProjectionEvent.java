@@ -1,5 +1,6 @@
 package com.autotradingsystem.users.query.api.projection;
 
+import com.autotradingsystem.messages.events.broker.DeletedBrokerEvent;
 import com.autotradingsystem.messages.events.user.AttachedBrokerToUserEvent;
 import com.autotradingsystem.messages.events.user.DisAttachedBrokerToUserEvent;
 import com.autotradingsystem.messages.events.user.UserCreatedEvent;
@@ -19,6 +20,11 @@ public class UserProjectionEvent {
 
     private final UserRepository userRepository;
     private final UserMappedBrokerRepository userMappedBrokerRepository;
+
+    @EventHandler
+    public void on(DeletedBrokerEvent deletedBrokerEvent){
+        userMappedBrokerRepository.deleteByBrokerId(deletedBrokerEvent.getBrokerId());
+    }
 
     @EventHandler
     public void on(UserCreatedEvent event){

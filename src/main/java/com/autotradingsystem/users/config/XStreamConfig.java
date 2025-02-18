@@ -20,6 +20,7 @@ import com.autotradingsystem.messages.events.user.AttachedBrokerToUserEvent;
 import com.autotradingsystem.messages.events.user.DisAttachedBrokerToUserEvent;
 import com.autotradingsystem.messages.events.user.UserCreatedEvent;
 import com.autotradingsystem.messages.queries.borker.*;
+import com.autotradingsystem.users.saga.CreateBrokerSaga;
 import com.thoughtworks.xstream.XStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,7 +46,8 @@ public class XStreamConfig {
                 FindShareDtoByShareFigiAndUserIdQuery.class,FindShareDtoListByUserIdAndBrokerIdQuery.class);
         registerClasses(xStream, StartTradingCommand.class, StopTradingCommand.class, TradingStartedEvent.class,
                 TradingStoppedEvent.class, PlaceBuyOrderCommand.class, PlaceSellOrderCommand.class,
-                PlacedSellOrderEvent.class, PlacedBuyOrderEvent.class);
+                PlacedSellOrderEvent.class, PlacedBuyOrderEvent.class, CreateBrokerSaga.class);
+
         return xStream;
     }
 

@@ -8,4 +8,6 @@ import java.util.UUID;
 @Repository
 public interface UserMappedBrokerRepository extends JpaRepository<UserMappingBroker, UUID> {
 
+    public void deleteByBrokerId(UUID brokerId);
+
 }
