@@ -1,0 +1,5 @@
+INSERT INTO usersAxon.user_broker (broker_id, user_id)
+VALUES
+    ('123e4567-e89b-12d3-a456-426614174000', 1),  -- John Doe
+    ('223e4567-e89b-12d3-a456-426614174001', 2),  -- Jane Smith
+    ('323e4567-e89b-12d3-a456-426614174002', 3);  -- Alex Brown
