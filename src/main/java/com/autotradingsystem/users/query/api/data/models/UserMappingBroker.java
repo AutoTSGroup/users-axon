@@ -14,7 +14,7 @@ import java.util.UUID;
 @Setter
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "user_broker")
+@Table(schema = "usersAxon", name = "user_broker")
 public class UserMappingBroker {
 
     @Id

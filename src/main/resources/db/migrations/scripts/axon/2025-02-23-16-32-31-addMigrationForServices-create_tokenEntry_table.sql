@@ -1,4 +1,4 @@
-CREATE TABLE usersAxon.token_entry (
+CREATE TABLE users_axon.token_entry (
     processor_name VARCHAR(255) NOT NULL,
     segment INTEGER NOT NULL,
     token BIGINT,

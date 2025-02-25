@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @FieldDefaults(makeFinal = false, level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "trader_bot_users")
+@Table(schema = "usersAxon", name = "trader_bot_users")
 public class UserEntity {
 
     @Id

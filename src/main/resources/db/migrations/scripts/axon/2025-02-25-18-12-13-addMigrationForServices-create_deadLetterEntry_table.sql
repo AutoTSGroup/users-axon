@@ -1,4 +1,4 @@
-CREATE TABLE usersAxon.dead_letter_entry (
+CREATE TABLE users_axon.dead_letter_entry (
     dead_letter_id VARCHAR(255) PRIMARY KEY,
     message_id VARCHAR(255) NOT NULL,
     cause_message_id VARCHAR(255),
