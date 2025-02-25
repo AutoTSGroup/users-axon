@@ -9,7 +9,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -18,8 +18,10 @@ spring:
 
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml
-#    default-schema: ${DB_SCHEMA:users}
+    change-log: db/migrations/main-changelog.xml
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/postgres_db
+    user: postgres_user
+    password: mypassword
 
 tracing:
   url: ${TRACING_COLLECTOR_URL:http://localhost:55680/v1/traces}
