@@ -26,7 +26,6 @@ spring:
 axon:
   axonserver:
     client-id: user-service
-    servers: localhost:8124
 
 
 server:
